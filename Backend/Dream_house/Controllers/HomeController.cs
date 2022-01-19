@@ -13,8 +13,8 @@ namespace Dream_house.Controllers
     {
         public static List<Home> homes = new List<Home>
         {
-            new Home {Id = 1, Name = "House1", Type="Apartament"},
-            new Home {Id = 2, Name = "House2", Type="Vila"}
+            new Home { Name = "House1", Type="Apartament"},
+            new Home { Name = "House2", Type="Vila"}
         };
 
         // GET
