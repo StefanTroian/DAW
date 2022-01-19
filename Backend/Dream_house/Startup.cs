@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Dream_house.Data;
+using Dream_house.Repositories.DatabaseRepository;
+using Dream_house.Services.DemoService;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -37,6 +39,9 @@ namespace Dream_house
 
             services.AddDbContext<DreamHouseContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+            // service
+            services.AddTransient<IDatabaseRepository, DatabaseRepository>();
+            services.AddTransient<IDemoService, DemoService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
