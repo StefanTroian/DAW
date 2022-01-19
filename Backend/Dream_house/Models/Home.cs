@@ -6,7 +6,10 @@ using Dream_house.Models.Base;
 
 namespace Dream_house.Models
 {
-    public class DataBaseModel: BaseEntity
+    public class Home: BaseEntity
     {
+        public string Name { get; set; }
+        public string Type { get; set; }
+        public ICollection<Room> Rooms { get; set; }
     }
 }
