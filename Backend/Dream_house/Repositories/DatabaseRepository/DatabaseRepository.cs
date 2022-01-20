@@ -56,5 +56,24 @@ namespace Dream_house.Repositories.DatabaseRepository
 
             return await result.ToListAsync();
         }
+
+
+        public void GroupByType()
+        {
+            var groupedHomes = from h in _table group h by h.Type;
+
+            foreach(var homeGroupByType in groupedHomes)
+            {
+                Console.WriteLine("Home group by type: " + homeGroupByType.Key);
+
+                foreach(Home h in homeGroupByType)
+                {
+                    Console.WriteLine("Home Type: " + h.Type);
+                }
+            }
+
+            // Method syntax
+            var groupedHomes2 = _table.GroupBy(h => h.Type);
+        }
     }
 }

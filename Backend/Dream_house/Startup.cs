@@ -8,6 +8,7 @@ using Dream_house.Repositories.DatabaseRepository;
 using Dream_house.Services.DemoService;
 using Dream_house.Services.UserService;
 using Dream_house.Utilities;
+using Dream_house.Utilities.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -23,6 +24,7 @@ namespace Dream_house
 {
     public class Startup
     {
+        private readonly string CorsAllowSpecificOrigin = "frontendAllowOrigin";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -44,6 +46,21 @@ namespace Dream_house
             services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
 
             // service
+            services.AddServices();
+            services.AddRepositories();
+
+            services.AddCors(option =>
+            {
+                option.AddPolicy(name: CorsAllowSpecificOrigin, 
+                    builder =>
+                    {
+                        builder.WithOrigins("https://localhost:4200", "https://localhost:4201")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .AllowCredentials();
+                    });
+            });
+
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
 
             services.AddScoped<IUserService, UserService>();
@@ -66,6 +83,9 @@ namespace Dream_house
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            // setting for allowing another origin to make request to our server
+            app.UseCors(CorsAllowSpecificOrigin);
 
             app.UseMiddleware<JWTMiddleware>();
 
