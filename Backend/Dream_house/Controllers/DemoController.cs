@@ -19,7 +19,7 @@ namespace Dream_house.Controllers
             _demoService = demoService;
         }
 
-        [HttpGet]
+        [HttpGet("byName/{name}")]
         public IActionResult GetByName(string name)
         {
             var result = _demoService.GetDataMappedByName(name);

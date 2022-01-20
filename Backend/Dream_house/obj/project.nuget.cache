@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "sw6iU4bqD+FchLa5Cm3U5+k0BPJjAGSx+rALfeWUTddXsNKvFOeExD3NqQOcKeM7CZB+2Ceek2YNhyEFkyF0Ew==",
+  "dgSpecHash": "dWjOMHyvmv9b9UxBwe1a9v5ZTs1RuGYBNXwfzslu2UimY9qy0VJvjDsfeDq8bGOQ1RgTxlLJLIdiePkP0AMPNQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\troia\\Desktop\\GIT\\DAW\\Backend\\Dream_house\\Dream_house.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\troia\\.nuget\\packages\\bcrypt.net-core\\1.6.0\\bcrypt.net-core.1.6.0.nupkg.sha512",
     "C:\\Users\\troia\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\troia\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\troia\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",

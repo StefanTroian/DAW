@@ -20,13 +20,13 @@ namespace Dream_house.Services.DemoService
         public HomeRoomResultDTO GetDataMappedByName(string name)
         {
             Home home = _databaseRepository.GetByNameIncludingRoom(name);
-            
+
             HomeRoomResultDTO result = new HomeRoomResultDTO
             {
                 Name = home.Name,
                 Type = home.Type,
                 HomeId = home.Id,
-                Rooms = (List<Room>)home.Rooms
+                Rooms = home.Rooms.ToList<Room>()
             };
 
             return result;

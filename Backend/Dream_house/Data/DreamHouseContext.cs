@@ -10,10 +10,11 @@ namespace Dream_house.Data
 {
     public class DreamHouseContext: DbContext
     {
-        public DbSet<Models.Home> Home { get; set; }
-        public DbSet<Models.Room> Room { get; set; }
-        public DbSet<Models.DecorationIdea> DecorationIdea { get; set; }
-        public DbSet<Models.Room_DecorationIdea> Room_DecorationIdea { get; set; }
+        public DbSet<Home> Home { get; set; }
+        public DbSet<Room> Room { get; set; }
+        public DbSet<DecorationIdea> DecorationIdea { get; set; }
+        public DbSet<Room_DecorationIdea> Room_DecorationIdea { get; set; }
+        public DbSet<User> User { get; set; }
 
         public DreamHouseContext(DbContextOptions<DreamHouseContext> options): base(options)
         {
