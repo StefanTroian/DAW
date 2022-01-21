@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Dream_house.Models;
+using Dream_house.Services.HomeService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,75 +13,79 @@ namespace Dream_house.Controllers
     [ApiController]
     public class HomeController : ControllerBase
     {
-        public static List<Home> homes = new List<Home>
+        private IHomeService _homeService;
+
+        public HomeController(IHomeService homeService)
         {
-            new Home { Name = "House1", Type="Apartament"},
-            new Home { Name = "House2", Type="Vila"}
-        };
+            _homeService = homeService;
+        }
 
         // GET
         [HttpGet("")]
-        public IEnumerable<Home> GetHomes()
+        public IActionResult GetHomes()
         {
-            return homes;
+            var homes = _homeService.GetAllHomes();
+            return Ok(homes);
         }
 
         [HttpGet("byId")]
-        public Home GetHomesById(int id)
+        public IActionResult GetHomesById(Guid id)
         {
-            return homes.FirstOrDefault(home => home.Id.Equals(id));
+            var home = _homeService.GetHomeById(id);
+            return Ok(home);
         }
 
         [HttpGet("byId/{id}")]
-        public Home GetHomesByIdInEndpoint(int id)
+        public IActionResult GetHomesByIdInEndpoint(Guid id)
         {
-            return homes.FirstOrDefault(home => home.Id.Equals(id));
+            var home = _homeService.GetHomeById(id);
+            return Ok(home);
         }
 
-        [HttpGet("filters/{name}/{type}")]
-        public Home GetHomesWithFilters(string name, string type)
-        {
-            return homes.FirstOrDefault(home => home.Name.Equals(name) && home.Type.Equals(type));
-        }
+        //[HttpGet("filters/{name}/{type}")]
+        //public Home GetHomesWithFilters(string name, string type)
+        //{
+        //    return homes.FirstOrDefault(home => home.Name.Equals(name) && home.Type.Equals(type));
+        //}
 
         [HttpGet("fromHeader")]
-        public Home GetHomeByIdFromHeader([FromHeader] int id)
+        public IActionResult GetHomeByIdFromHeader([FromHeader] Guid id)
         {
-            return homes.FirstOrDefault(home => home.Id.Equals(id));
+            var home = _homeService.GetHomeById(id);
+            return Ok(home);
         }
 
         [HttpGet("fromQuery")]
-        public Home GetHomeByIdFromQuery([FromQuery] int id)
+        public IActionResult GetHomeByIdFromQuery([FromQuery] Guid id)
         {
-            return homes.FirstOrDefault(home => home.Id.Equals(id));
+            var home = _homeService.GetHomeById(id);
+            return Ok(home);
         }
 
 
 
         // POST
-        [HttpPost]
-        public IActionResult Add(Home home)
+        [HttpPost("create")]
+        public IActionResult Add([FromBody] Home home)
         {
-            homes.Add(home);
-            return Ok(homes);
+            _homeService.CreateHome(home);
+            return Ok();
         }
 
-        [HttpPost("fromBody")]
-        public IActionResult AddWithBody([FromBody] Home home)
-        {
-            homes.Add(home);
-            return Ok(homes);
-        }
+        //[HttpPost("fromBody")]
+        //public IActionResult AddWithBody([FromBody] Home home)
+        //{
+        //    homes.Add(home);
+        //    return Ok(homes);
+        //}
 
 
 
         // UPDATE
         public IActionResult Update([FromBody] Home home)
         {
-            var homeIndex = homes.FindIndex((Home _home) => _home.Id.Equals(home.Id));
-            homes[homeIndex] = home;
-
-            return Ok(homes);
+            _homeService.UpdateHome(home);
+            return Ok();
         }
 
         //public async Task<IActionResult> UpdateAsync([FromBody] Home home)
@@ -97,8 +102,8 @@ namespace Dream_house.Controllers
         [HttpDelete]
         public IActionResult Delete(Home home)
         {
-            homes.Remove(home);
-            return Ok(homes);
+            _homeService.DeleteHome(home);
+            return Ok();
         }
 
     }

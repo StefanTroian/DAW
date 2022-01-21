@@ -24,6 +24,29 @@ namespace Dream_house.Controllers
         }
 
 
+        //[Authorization(Role.Administrator)]
+        [HttpGet("all")]
+        public IActionResult GetAllUsers()
+        {
+            var users = _userService.GetAllUsers();
+            return Ok(users);
+        }
+
+        [HttpGet("byId/{id}/home")]
+        public IActionResult GetUserAndHome(Guid id)
+        {
+            var users = _userService.GetUserAndHome(id);
+            return Ok(users);
+        }
+
+        [HttpGet("byId/{id}")]
+        public IActionResult GetUserById(Guid id)
+        {
+            var user = _userService.GetUserById(id);
+            return Ok(user);
+        }
+
+
         [HttpPost("auth")]
         public IActionResult Auth(UserRequestDTO user)
         {
@@ -52,7 +75,7 @@ namespace Dream_house.Controllers
             };
 
             // should add the context
-            _userService.Create(userToCreate);
+            _userService.CreateUser(userToCreate);
 
             // should add Auth
             Auth(user);
@@ -60,12 +83,19 @@ namespace Dream_house.Controllers
             return Ok();
         }
 
-        [Authorization(Role.Administrator)]
-        [HttpGet]
-        public IActionResult GetAllUsers()
+
+        [HttpPut("update")]
+        public IActionResult UpdateUser([FromBody] User user)
         {
-            var users = _userService.GetAllUsers();
-            return Ok(users);
+            _userService.UpdateUser(user);
+            return Ok();
+        }
+
+        [HttpDelete("delete")]
+        public IActionResult DeleteUser([FromBody] User user)
+        {
+            _userService.DeleteUser(user);
+            return Ok();
         }
     }
 }

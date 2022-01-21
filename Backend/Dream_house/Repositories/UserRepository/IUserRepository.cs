@@ -10,6 +10,7 @@ namespace Dream_house.Repositories.UserRepository
     public interface IUserRepository: IGenericRepository<User>
     {
         User GetByUsername(string username);
-        Task<User> CreateUser(User user);
+        //Task<User> CreateUser(User user);
+        User GetUserWithHouseJoin(Guid id);
     }
 }

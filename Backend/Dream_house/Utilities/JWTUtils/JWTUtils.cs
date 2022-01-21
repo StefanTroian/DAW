@@ -21,7 +21,7 @@ namespace Dream_house.Utilities.JWTUtils
         public string GenerateJWTToken(User user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var appPrivateKey = Encoding.UTF8.GetBytes("ProiectDAWStefan");
+            var appPrivateKey = Encoding.UTF8.GetBytes(_appSettings.JwtSecret); //"ProiectDAWStefan"
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {

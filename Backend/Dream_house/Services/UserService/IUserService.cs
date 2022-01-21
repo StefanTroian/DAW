@@ -10,8 +10,11 @@ namespace Dream_house.Services.UserService
     public interface IUserService
     {
         UserResponseDTO Auth(UserRequestDTO model);
-        void Create(User user);
         IEnumerable<User> GetAllUsers();
-        User GetById(Guid id);
+        User GetUserById(Guid id);
+        User GetUserAndHome(Guid id);
+        void CreateUser(User user);
+        void UpdateUser(User user);
+        void DeleteUser(User user);
     }
 }

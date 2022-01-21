@@ -22,9 +22,9 @@ namespace Dream_house.Repositories.GenericRepository
 
 
         // Get All
-        public async Task<List<TEntity>> GetAll()
+        public IEnumerable<TEntity> GetAll()
         {
-            return await _table.AsNoTracking().ToListAsync();
+            return _table.AsNoTracking();
         } 
         public IQueryable<TEntity> GetAllAsQueryable()
         {

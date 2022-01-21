@@ -14,7 +14,7 @@ namespace Dream_house.Utilities.Attributes
         private readonly ICollection<Role> _roles;
         public AuthorizationAttribute(params Role[] roles)
         {
-            _roles = _roles;
+            _roles = roles;
         }
 
         public void OnAuthorization(AuthorizationFilterContext context)

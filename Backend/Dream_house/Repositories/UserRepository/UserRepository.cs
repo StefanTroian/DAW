@@ -19,9 +19,17 @@ namespace Dream_house.Repositories.UserRepository
         {
             return _table.FirstOrDefault(x => x.Username.ToLower().Equals(username.ToLower()));
         }
-        public Task<User> CreateUser(User user)
+        //public Task<User> CreateUser(User user)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        public User GetUserWithHouseJoin(Guid id)
         {
-            throw new NotImplementedException();
+            var result = _table.Join(_context.Home, user => user.Id, home => home.UserId,
+                (user, home) => new { user, home }).Select(obj => obj.user).FirstOrDefault(x => x.Id.Equals(id));
+
+            return result;
         }
 
     }

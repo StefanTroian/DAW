@@ -9,7 +9,7 @@ namespace Dream_house.Repositories.GenericRepository
     public interface IGenericRepository<TEntity> where TEntity: BaseEntity
     {
         // Get all data
-        Task<List<TEntity>> GetAll();
+        IEnumerable<TEntity> GetAll();
         IQueryable<TEntity> GetAllAsQueryable();
 
 

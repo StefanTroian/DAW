@@ -28,6 +28,7 @@ namespace Dream_house.Services.UserService
             _userRepository = userRepository;
         }
 
+
         public UserResponseDTO Auth(UserRequestDTO model)
         {
             var user = _DreamHouseContext.User.FirstOrDefault(x => x.Username == model.Username);
@@ -41,21 +42,42 @@ namespace Dream_house.Services.UserService
             var jwtToken = _iJWTUtils.GenerateJWTToken(user);
             return new UserResponseDTO(user, jwtToken);
         }
+        
 
-        public void Create(User user)
+        public IEnumerable<User> GetAllUsers()
+        {
+            return (IEnumerable<User>)_userRepository.GetAll();
+        }
+
+        public User GetUserById(Guid id)
+        {
+            return _userRepository.FindById(id);
+        }
+        public User GetUserAndHome(Guid id)
+        {
+            return _userRepository.GetUserWithHouseJoin(id);
+        }
+
+
+        public void CreateUser(User user)
         {
             _userRepository.Create(user);
             _userRepository.Save();
         }
 
-        public IEnumerable<User> GetAllUsers()
+
+        public void UpdateUser(User user)
         {
-            throw new NotImplementedException();
+            _userRepository.Update(user);
+            _userRepository.Save();
         }
 
-        public User GetById(Guid id)
+
+        public void DeleteUser(User user)
         {
-            throw new NotImplementedException();
+            _userRepository.Delete(user);
+            _userRepository.Save();
         }
+
     }
 }

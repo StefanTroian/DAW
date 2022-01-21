@@ -28,7 +28,7 @@ namespace Dream_house.Utilities
 
             if (userId != Guid.Empty)
             {
-                httpContext.Items["User"] = userService.GetById(userId);
+                httpContext.Items["User"] = userService.GetUserById(userId);
             }
 
             await _next(httpContext);
