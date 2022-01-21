@@ -18,5 +18,7 @@ namespace Dream_house.Models
         public string PasswordHash { get; set; }
 
         public Role Role { get; set; }
+
+        public Home? Home { get; set; }
     }
 }

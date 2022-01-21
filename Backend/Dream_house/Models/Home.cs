@@ -11,5 +11,7 @@ namespace Dream_house.Models
         public string Name { get; set; }
         public string Type { get; set; }
         public ICollection<Room> Rooms { get; set; }
+        public User User { get; set; }
+        public Guid UserId { get; set; }
     }
 }

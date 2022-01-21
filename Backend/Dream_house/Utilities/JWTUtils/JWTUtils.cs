@@ -21,10 +21,11 @@ namespace Dream_house.Utilities.JWTUtils
         public string GenerateJWTToken(User user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var appPrivateKey = Encoding.ASCII.GetBytes(_appSettings.JwtSecret);
+            var appPrivateKey = Encoding.UTF8.GetBytes("ProiectDAWStefan");
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {
+                Issuer = "https://localhost:44347/",
                 Subject = new ClaimsIdentity(new[] { new Claim("id", user.Id.ToString()) }),
                 Expires = DateTime.UtcNow.AddDays(10),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(appPrivateKey), SecurityAlgorithms.HmacSha256Signature)

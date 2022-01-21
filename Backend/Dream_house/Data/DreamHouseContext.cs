@@ -42,6 +42,12 @@ namespace Dream_house.Data
                 .WithMany(di => di.Room_DecorationIdeas)
                 .HasForeignKey(rdi => rdi.DecorationIdeaId);
 
+            // ONE TO ONE
+            builder.Entity<User>()
+                .HasOne(u => u.Home)
+                .WithOne(h => h.User)
+                .HasForeignKey<Home>(h => h.UserId);
+
             base.OnModelCreating(builder);
         }
     }

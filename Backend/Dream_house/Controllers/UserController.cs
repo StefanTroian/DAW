@@ -38,18 +38,25 @@ namespace Dream_house.Controllers
         }
 
 
-        [HttpPost("auth")]
-        public IActionResult Create(UserRequestDTO user)
+        [HttpPost("create")]
+        public IActionResult Create([FromBody] UserRequestDTO user)
         {
             var userToCreate = new User
             {
                 FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email,
+                Username = user.Username,
                 Role = Role.User,
                 PasswordHash = BCryptNet.HashPassword(user.Password)
             };
 
             // should add the context
+            _userService.Create(userToCreate);
+
             // should add Auth
+            Auth(user);
+
             return Ok();
         }
 

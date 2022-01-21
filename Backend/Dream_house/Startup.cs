@@ -5,10 +5,12 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Dream_house.Data;
 using Dream_house.Repositories.DatabaseRepository;
+using Dream_house.Repositories.UserRepository;
 using Dream_house.Services.DemoService;
 using Dream_house.Services.UserService;
 using Dream_house.Utilities;
 using Dream_house.Utilities.Extensions;
+using Dream_house.Utilities.JWTUtils;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -64,9 +66,10 @@ namespace Dream_house
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
 
             services.AddScoped<IUserService, UserService>();
-            services.AddScoped<IJWTUtils, IJWTUtils>();
+            services.AddScoped<IJWTUtils, JWTUtils>();
             
             services.AddTransient<IDatabaseRepository, DatabaseRepository>();
+            services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IDemoService, DemoService>();
         }
 
