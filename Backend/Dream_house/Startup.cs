@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 using Dream_house.Data;
 using Dream_house.Repositories.DatabaseRepository;
 using Dream_house.Repositories.HomeRepository;
+using Dream_house.Repositories.RoomRepository;
 using Dream_house.Repositories.UserRepository;
 using Dream_house.Services.DemoService;
 using Dream_house.Services.HomeService;
+using Dream_house.Services.RoomService;
 using Dream_house.Services.UserService;
 using Dream_house.Utilities;
 using Dream_house.Utilities.Extensions;
@@ -69,11 +71,13 @@ namespace Dream_house
 
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IHomeService, HomeService>();
+            services.AddScoped<IRoomService, RoomService>();
             services.AddScoped<IJWTUtils, JWTUtils>();
             
             services.AddTransient<IDatabaseRepository, DatabaseRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IHomeRepository, HomeRepository>();
+            services.AddTransient<IRoomRepository, RoomRepository>();
             services.AddTransient<IDemoService, DemoService>();
         }
 

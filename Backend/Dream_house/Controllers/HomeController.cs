@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Dream_house.Models;
 using Dream_house.Services.HomeService;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Dream_house.Controllers
@@ -19,6 +15,7 @@ namespace Dream_house.Controllers
         {
             _homeService = homeService;
         }
+
 
         // GET
         [HttpGet("")]
@@ -41,12 +38,6 @@ namespace Dream_house.Controllers
             var home = _homeService.GetHomeById(id);
             return Ok(home);
         }
-
-        //[HttpGet("filters/{name}/{type}")]
-        //public Home GetHomesWithFilters(string name, string type)
-        //{
-        //    return homes.FirstOrDefault(home => home.Name.Equals(name) && home.Type.Equals(type));
-        //}
 
         [HttpGet("fromHeader")]
         public IActionResult GetHomeByIdFromHeader([FromHeader] Guid id)
@@ -72,13 +63,6 @@ namespace Dream_house.Controllers
             return Ok();
         }
 
-        //[HttpPost("fromBody")]
-        //public IActionResult AddWithBody([FromBody] Home home)
-        //{
-        //    homes.Add(home);
-        //    return Ok(homes);
-        //}
-
 
 
         // UPDATE
@@ -88,13 +72,6 @@ namespace Dream_house.Controllers
             return Ok();
         }
 
-        //public async Task<IActionResult> UpdateAsync([FromBody] Home home)
-        //{
-        //    var homeIndex = homes.FindIndex((Home _home) => _home.Id.Equals(home.Id));
-        //    homes[homeIndex] = home;
-
-        //    return Ok(homes);
-        //}
 
 
 
