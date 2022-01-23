@@ -100,7 +100,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"$id\": \"2\",\r\n    \"username\": \"ST10\",\r\n    \"firstName\": \"Stefan\",\r\n    \"lastName\": \"Troian\",\r\n    \"email\": \"st@gmail.com\",\r\n    \"role\": 1,\r\n    \"home\": null,\r\n    \"id\": \"c7371654-201b-42cb-e25e-08d9dcf1bfd1\",\r\n    \"dateCreated\": null,\r\n    \"dateModified\": null\r\n}",
+							"raw": "{\r\n    \"$id\": \"2\",\r\n    \"username\": \"ST10\",\r\n    \"firstName\": \"Stefan\",\r\n    \"lastName\": \"Troian\",\r\n    \"email\": \"st@gmail.com\",\r\n    \"role\": 1,\r\n    \"home\": {\r\n        \"name\": \"House ST\",\r\n        \"type\": \"Apartment\",\r\n        \"rooms\": null,\r\n        \"user\": null,\r\n        \"userId\": \"c7371654-201b-42cb-e25e-08d9dcf1bfd1\",\r\n        \"id\": \"7c750b1f-fdef-4a37-a662-08d9dd27f9e1\",\r\n        \"dateCreated\": null,\r\n        \"dateModified\": null\r\n    },\r\n    \"id\": \"c7371654-201b-42cb-e25e-08d9dcf1bfd1\",\r\n    \"dateCreated\": null,\r\n    \"dateModified\": null\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -182,7 +182,130 @@
 			"name": "Home",
 			"item": [
 				{
-					"name": "homes",
+					"name": "GetHomes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44347/api/Home",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44347",
+							"path": [
+								"api",
+								"Home"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetHomeById (?id=)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44347/api/Home/byId?id=7c750b1f-fdef-4a37-a662-08d9dd27f9e1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44347",
+							"path": [
+								"api",
+								"Home",
+								"byId"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "7c750b1f-fdef-4a37-a662-08d9dd27f9e1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetHomeById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44347/api/Home/byId/7c750b1f-fdef-4a37-a662-08d9dd27f9e1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44347",
+							"path": [
+								"api",
+								"Home",
+								"byId",
+								"7c750b1f-fdef-4a37-a662-08d9dd27f9e1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetHomeFromHeader",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "id",
+								"value": "7c750b1f-fdef-4a37-a662-08d9dd27f9e1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://localhost:44347/api/Home/fromHeader",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44347",
+							"path": [
+								"api",
+								"Home",
+								"fromHeader"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetHomeFromQuery",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44347/api/Home/fromQuery?id=7c750b1f-fdef-4a37-a662-08d9dd27f9e1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44347",
+							"path": [
+								"api",
+								"Home",
+								"fromQuery"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "7c750b1f-fdef-4a37-a662-08d9dd27f9e1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateHome",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -210,242 +333,498 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "UpdateHome",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"House ST put\",\r\n    \"type\": \"Vila\",\r\n    \"rooms\": null,\r\n    \"user\": null,\r\n    \"userId\": \"c7371654-201b-42cb-e25e-08d9dcf1bfd1\",\r\n    \"id\": \"7c750b1f-fdef-4a37-a662-08d9dd27f9e1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44347/api/Home",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44347",
+							"path": [
+								"api",
+								"Home"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteHome",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"House ST put\",\r\n    \"type\": \"Vila\",\r\n    \"rooms\": null,\r\n    \"user\": null,\r\n    \"userId\": \"c7371654-201b-42cb-e25e-08d9dcf1bfd1\",\r\n    \"id\": \"7c750b1f-fdef-4a37-a662-08d9dd27f9e1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44347/api/Home",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44347",
+							"path": [
+								"api",
+								"Home"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
 		{
-			"name": "homes",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://localhost:44347/api/Home",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "44347",
-					"path": [
-						"api",
-						"Home"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "home/byId?=id",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://localhost:44347/api/Home/byId?id=1",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "44347",
-					"path": [
-						"api",
-						"Home",
-						"byId"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "1"
+			"name": "Room",
+			"item": [
+				{
+					"name": "GetRooms",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44347/api/Room",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44347",
+							"path": [
+								"api",
+								"Room"
+							]
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "home/byId/id",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://localhost:44347/api/Home/byId/2",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "44347",
-					"path": [
-						"api",
-						"Home",
-						"byId",
-						"2"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "home/fromHeader",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "id",
-						"value": "2",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "https://localhost:44347/api/Home/fromHeader",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "44347",
-					"path": [
-						"api",
-						"Home",
-						"fromHeader"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "home/fromQuery",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://localhost:44347/api/Home/fromQuery?id=2",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "44347",
-					"path": [
-						"api",
-						"Home",
-						"fromQuery"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "2"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "home/filters/name/type",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://localhost:44347/api/Home/filters/House1/Apartament",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "44347",
-					"path": [
-						"api",
-						"Home",
-						"filters",
-						"House1",
-						"Apartament"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "home/fromBody",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"Name\": \"House ST\",\r\n    \"Type\": \"Apartment\",\r\n    \"UserId\": \"c7371654-201b-42cb-e25e-08d9dcf1bfd1\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "https://localhost:44347/api/Home/fromBody",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "44347",
-					"path": [
-						"api",
-						"Home",
-						"fromBody"
-					]
+				{
+					"name": "GetRoomById (?id=)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44347/api/Room/byId?id=e1984ea1-8253-443a-318a-08d9de81b8b4",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44347",
+							"path": [
+								"api",
+								"Room",
+								"byId"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "e1984ea1-8253-443a-318a-08d9de81b8b4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetRoomById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44347/api/Room/byId/e1984ea1-8253-443a-318a-08d9de81b8b4",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44347",
+							"path": [
+								"api",
+								"Room",
+								"byId",
+								"e1984ea1-8253-443a-318a-08d9de81b8b4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetRoomFromHeader",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "id",
+								"value": "e1984ea1-8253-443a-318a-08d9de81b8b4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://localhost:44347/api/Room/fromHeader",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44347",
+							"path": [
+								"api",
+								"Room",
+								"fromHeader"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetRoomFromQuery",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44347/api/Room/fromQuery?id=e1984ea1-8253-443a-318a-08d9de81b8b4",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44347",
+							"path": [
+								"api",
+								"Room",
+								"fromQuery"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "e1984ea1-8253-443a-318a-08d9de81b8b4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateRoom",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Type\": \"Baie\",\r\n    \"Home_id\": \"7c750b1f-fdef-4a37-a662-08d9dd27f9e1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44347/api/Room/create",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44347",
+							"path": [
+								"api",
+								"Room",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateRoom",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\": \"Bucatarie\",\r\n    \"home\": null,\r\n    \"home_id\": \"7c750b1f-fdef-4a37-a662-08d9dd27f9e1\",\r\n    \"room_DecorationIdeas\": null,\r\n    \"id\": \"f11b39a1-dedc-480a-318c-08d9de81b8b4\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44347/api/Room",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44347",
+							"path": [
+								"api",
+								"Room"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteRoom",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"$id\": \"7\",\r\n    \"type\": null,\r\n    \"home\": null,\r\n    \"home_id\": \"00000000-0000-0000-0000-000000000000\",\r\n    \"room_DecorationIdeas\": null,\r\n    \"id\": \"e2cfa14f-eeb1-4e58-392e-08d9de902e52\",\r\n    \"dateCreated\": null,\r\n    \"dateModified\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44347/api/Room",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44347",
+							"path": [
+								"api",
+								"Room"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "homes",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"Id\": 2,\r\n    \"Name\": \"House3\",\r\n    \"Type\": \"Duplex\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Decoration Idea",
+			"item": [
+				{
+					"name": "GetDecorationIdeas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44347/api/DecorationIdea",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44347",
+							"path": [
+								"api",
+								"DecorationIdea"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "https://localhost:44347/api/Home",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "44347",
-					"path": [
-						"api",
-						"Home"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "homes",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"Id\": 2,\r\n    \"Name\": \"House2\",\r\n    \"Type\": \"Duplex\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "GetDecorationIdeaById (?id=)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44347/api/DecorationIdea/byId?id=76681373-06a2-4b01-dc84-08d9de91e9d3",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44347",
+							"path": [
+								"api",
+								"DecorationIdea",
+								"byId"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "76681373-06a2-4b01-dc84-08d9de91e9d3"
+								}
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "https://localhost:44347/api/Home",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "44347",
-					"path": [
-						"api",
-						"Home"
-					]
+				{
+					"name": "GetDecorationIdeaById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44347/api/DecorationIdea/byId/76681373-06a2-4b01-dc84-08d9de91e9d3",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44347",
+							"path": [
+								"api",
+								"DecorationIdea",
+								"byId",
+								"76681373-06a2-4b01-dc84-08d9de91e9d3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDecorationIdeaFromHeader",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "id",
+								"value": "76681373-06a2-4b01-dc84-08d9de91e9d3",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://localhost:44347/api/DecorationIdea/fromHeader",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44347",
+							"path": [
+								"api",
+								"DecorationIdea",
+								"fromHeader"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDecorationIdeaFromQuery",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44347/api/DecorationIdea/fromQuery?id=76681373-06a2-4b01-dc84-08d9de91e9d3",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44347",
+							"path": [
+								"api",
+								"DecorationIdea",
+								"fromQuery"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "76681373-06a2-4b01-dc84-08d9de91e9d3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateDecorationIdea",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Idea_description\": \"Perete din caramida\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44347/api/DecorationIdea/create",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44347",
+							"path": [
+								"api",
+								"DecorationIdea",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateDecorationIdea",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idea_description\": \"Canapea din matase update\",\r\n    \"id\": \"c8cf0df2-6b4c-494d-dc83-08d9de91e9d3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44347/api/DecorationIdea",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44347",
+							"path": [
+								"api",
+								"DecorationIdea"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteDecorationIdea",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idea_description\": \"Canapea din matase\",\r\n    \"room_DecorationIdeas\": null,\r\n    \"id\": \"c8cf0df2-6b4c-494d-dc83-08d9de91e9d3\",\r\n    \"dateCreated\": null,\r\n    \"dateModified\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44347/api/DecorationIdea",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44347",
+							"path": [
+								"api",
+								"DecorationIdea"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
 			"name": "HomeRoom",

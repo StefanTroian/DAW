@@ -5,9 +5,11 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Dream_house.Data;
 using Dream_house.Repositories.DatabaseRepository;
+using Dream_house.Repositories.DecorationIdeaRepository;
 using Dream_house.Repositories.HomeRepository;
 using Dream_house.Repositories.RoomRepository;
 using Dream_house.Repositories.UserRepository;
+using Dream_house.Services.DecorationIdeaService;
 using Dream_house.Services.DemoService;
 using Dream_house.Services.HomeService;
 using Dream_house.Services.RoomService;
@@ -72,12 +74,14 @@ namespace Dream_house
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IHomeService, HomeService>();
             services.AddScoped<IRoomService, RoomService>();
+            services.AddScoped<IDecorationIdeaService, DecorationIdeaService>();
             services.AddScoped<IJWTUtils, JWTUtils>();
             
             services.AddTransient<IDatabaseRepository, DatabaseRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IHomeRepository, HomeRepository>();
             services.AddTransient<IRoomRepository, RoomRepository>();
+            services.AddTransient<IDecorationIdeaRepository, DecorationIdeaRepository>();
             services.AddTransient<IDemoService, DemoService>();
         }
 
