@@ -1,0 +1,1 @@
+SELECT * FROM [DAW_dream_house].[dbo].[Home] h join [DAW_dream_house].[dbo].[User] u on (h.UserId = u.Id);
