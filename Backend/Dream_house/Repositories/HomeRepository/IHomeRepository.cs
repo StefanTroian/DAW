@@ -9,6 +9,6 @@ namespace Dream_house.Repositories.HomeRepository
 {
     public interface IHomeRepository: IGenericRepository<Home>
     {
-
+        Home GetByNameIncludingRoom(string name);
     }
 }

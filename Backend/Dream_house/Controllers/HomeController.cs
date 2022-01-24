@@ -83,5 +83,14 @@ namespace Dream_house.Controllers
             return Ok();
         }
 
+
+
+        // INCLUDE
+        [HttpGet("byName/{name}")]
+        public IActionResult GetByName(string name)
+        {
+            var result = _homeService.GetDataMappedByName(name);
+            return Ok(result);
+        }
     }
 }

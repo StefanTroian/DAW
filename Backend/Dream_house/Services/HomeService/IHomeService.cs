@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Dream_house.DTOs;
 using Dream_house.Models;
 
 namespace Dream_house.Services.HomeService
@@ -13,5 +14,6 @@ namespace Dream_house.Services.HomeService
         void CreateHome(Home home);
         void UpdateHome(Home home);
         void DeleteHome(Home home);
+        HomeRoomResultDTO GetDataMappedByName(string name);
     }
 }
