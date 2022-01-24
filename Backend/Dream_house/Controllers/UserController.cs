@@ -24,7 +24,7 @@ namespace Dream_house.Controllers
         }
 
 
-        //[Authorization(Role.Administrator)]
+        [Authorization(Role.User)]
         [HttpGet("all")]
         public IActionResult GetAllUsers()
         {

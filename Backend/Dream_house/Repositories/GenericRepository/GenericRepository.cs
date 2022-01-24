@@ -81,7 +81,7 @@ namespace Dream_house.Repositories.GenericRepository
         //Find
         public TEntity FindById(object id)
         {
-            return _table.Find(id);
+            return _table.FirstOrDefault(x => x.Id.Equals(id));
         }
         public async Task<TEntity> FindByIdAsync(object id)
         {
