@@ -11,6 +11,16 @@
 				{
 					"name": "GetAllUsers",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjM2ZGM0NWM4LTk1ZmItNDYyMC1mZDhkLTA4ZDlkZjZkY2JmOCIsIm5iZiI6MTY0MzA1Mjk0MSwiZXhwIjoxNjQzOTE2OTQxLCJpYXQiOjE2NDMwNTI5NDF9.YFDiYkWxwxLB0jti7Sld3lZRIqQVYF5sDYEOsj6QdNQ",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -47,7 +57,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:44347/api/User/byId/C7371654-201B-42CB-E25E-08D9DCF1BFD1",
+							"raw": "https://localhost:44347/api/User/byId/FC9566BF-B041-471D-FD8C-08D9DF6DCBF8",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -57,7 +67,7 @@
 								"api",
 								"User",
 								"byId",
-								"C7371654-201B-42CB-E25E-08D9DCF1BFD1"
+								"FC9566BF-B041-471D-FD8C-08D9DF6DCBF8"
 							]
 						}
 					},
@@ -70,7 +80,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"Username\": \"ST2\",\r\n    \"Password\": \"1234\",\r\n    \"FirstName\": \"Stefan2\",\r\n    \"LastName\": \"Troian2\",\r\n    \"Email\": \"st@gmail.com\"\r\n}",
+							"raw": "{\r\n    \"Username\": \"test\",\r\n    \"Password\": \"test\",\r\n    \"FirstName\": \"test\",\r\n    \"LastName\": \"test\",\r\n    \"Email\": \"st@gmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -171,6 +181,36 @@
 								"byId",
 								"C7371654-201B-42CB-E25E-08D9DCF1BFD1",
 								"home"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Auth",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Username\": \"test\",\r\n    \"Password\": \"test\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44347/api/User/auth",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44347",
+							"path": [
+								"api",
+								"User",
+								"auth"
 							]
 						}
 					},
