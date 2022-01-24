@@ -827,12 +827,125 @@
 			]
 		},
 		{
+			"name": "Room & Decoration Idea",
+			"item": [
+				{
+					"name": "GetRoom & DecorationIdeas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44347/api/RoomDecorationIdea",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44347",
+							"path": [
+								"api",
+								"RoomDecorationIdea"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateRoom & DecorationIdea",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"RoomId\": \"e1984ea1-8253-443a-318a-08d9de81b8b4\",\r\n    \"DecorationIdeaId\": \"e7320cf1-e79e-4dd8-dc85-08d9de91e9d3\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44347/api/RoomDecorationIdea/create",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44347",
+							"path": [
+								"api",
+								"RoomDecorationIdea",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateRoom & DecorationIdea",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"RoomId\": \"e1984ea1-8253-443a-318a-08d9de81b8b4\",\r\n    \"DecorationIdeaId\": \"e7320cf1-e79e-4dd8-dc85-08d9de91e9d3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44347/api/RoomDecorationIdea",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44347",
+							"path": [
+								"api",
+								"RoomDecorationIdea"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteDecorationIdea",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\" : \"00000000-0000-0000-0000-000000000000\",\r\n    \"RoomId\": \"e1984ea1-8253-443a-318a-08d9de81b8b4\",\r\n    \"DecorationIdeaId\": \"e7320cf1-e79e-4dd8-dc85-08d9de91e9d3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44347/api/DecorationIdea",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44347",
+							"path": [
+								"api",
+								"DecorationIdea"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "HomeRoom",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://localhost:44347/api/Demo/byName/HomeTest2",
+					"raw": "https://localhost:44347/api/Demo/byName/House ST put",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -842,7 +955,7 @@
 						"api",
 						"Demo",
 						"byName",
-						"HomeTest2"
+						"House ST put"
 					]
 				}
 			},
