@@ -15,7 +15,7 @@ namespace Dream_house.Services.HomeService
         void UpdateHome(Home home);
         void DeleteHome(Home home);
         HomeRoomResultDTO GetDataMappedByName(string name);
-        HomeRoomResultDTO GetHomeByIdWithJoinRooms(Guid id);
+        HomeRoomDTO GetHomeByIdWithJoinRooms(Guid id);
         List<HomeByTypeDTO> GetHomeGroupByType();
         HomeByTypeDTO GetHomeWhereType(string type);
     }

@@ -59,19 +59,19 @@ namespace Dream_house.Services.HomeService
             return result;
         }
 
-        public HomeRoomResultDTO GetHomeByIdWithJoinRooms(Guid id)
+        public HomeRoomDTO GetHomeByIdWithJoinRooms(Guid id)
         {
-            Home home = _homeRepository.GetHomeByIdWithJoin(id);
+            HomeRoomDTO homeRoom = _homeRepository.GetHomeByIdWithJoin(id);
 
-            HomeRoomResultDTO result = new HomeRoomResultDTO()
-            {
-                Name = home.Name,
-                Type = home.Type,
-                HomeId = home.Id,
-                Rooms = home.Rooms.ToList<Room>()
-            };
+            //HomeRoomResultDTO result = new HomeRoomResultDTO()
+            //{
+            //    Name = homeRoom.home.Name,
+            //    Type = homeRoom.home.Type,
+            //    HomeId = homeRoom.Id,
+            //    Rooms = home.Rooms.ToList<Room>()
+            //};
 
-            return result;
+            return homeRoom;
         }
 
         public List<HomeByTypeDTO> GetHomeGroupByType()

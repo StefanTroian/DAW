@@ -311,7 +311,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"Name\": \"House ST\",\r\n    \"Type\": \"Apartment\",\r\n    \"UserId\": \"c7371654-201b-42cb-e25e-08d9dcf1bfd1\"\r\n}",
+							"raw": "{\r\n    \"Name\": \"House 2\",\r\n    \"Type\": \"Apartment\",\r\n    \"UserId\": \"f486b7a0-b484-4021-17ff-08d9dd0f1361\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -341,7 +341,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"House ST put\",\r\n    \"type\": \"Vila\",\r\n    \"rooms\": null,\r\n    \"user\": null,\r\n    \"userId\": \"c7371654-201b-42cb-e25e-08d9dcf1bfd1\",\r\n    \"id\": \"7c750b1f-fdef-4a37-a662-08d9dd27f9e1\"\r\n}",
+							"raw": "{\r\n    \"name\": \"House ST put\",\r\n    \"type\": \"Vila\",\r\n    \"rooms\": [\r\n        {\r\n            \"$id\": \"3\",\r\n            \"type\": \"Dormitor\",\r\n            \"home\": null,\r\n            \"home_id\": \"7c750b1f-fdef-4a37-a662-08d9dd27f9e1\",\r\n            \"room_DecorationIdeas\": null,\r\n            \"id\": \"afa47996-224b-4bb4-318b-08d9de81b8b4\",\r\n            \"dateCreated\": null,\r\n            \"dateModified\": null\r\n        },\r\n        {\r\n            \"$id\": \"4\",\r\n            \"type\": \"Bucatarie\",\r\n            \"home\": null,\r\n            \"home_id\": \"7c750b1f-fdef-4a37-a662-08d9dd27f9e1\",\r\n            \"room_DecorationIdeas\": null,\r\n            \"id\": \"f11b39a1-dedc-480a-318c-08d9de81b8b4\",\r\n            \"dateCreated\": null,\r\n            \"dateModified\": null\r\n        }\r\n    ],\r\n    \"user\": null,\r\n    \"userId\": \"c7371654-201b-42cb-e25e-08d9dcf1bfd1\",\r\n    \"id\": \"7c750b1f-fdef-4a37-a662-08d9dd27f9e1\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -940,26 +940,96 @@
 			]
 		},
 		{
-			"name": "HomeRoom",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://localhost:44347/api/Demo/byName/House ST put",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "44347",
-					"path": [
-						"api",
-						"Demo",
-						"byName",
-						"House ST put"
-					]
+			"name": "Metods",
+			"item": [
+				{
+					"name": "Home & Rooms (include)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44347/api/Home/byName/House ST put",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44347",
+							"path": [
+								"api",
+								"Home",
+								"byName",
+								"House ST put"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Home & Rooms (join)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44347/api/Home/byIdJoin/7c750b1f-fdef-4a37-a662-08d9dd27f9e1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44347",
+							"path": [
+								"api",
+								"Home",
+								"byIdJoin",
+								"7c750b1f-fdef-4a37-a662-08d9dd27f9e1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HomeByType (groupby)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44347/api/Home/byType",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44347",
+							"path": [
+								"api",
+								"Home",
+								"byType"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HomeByType (where)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44347/api/Home/byType/Apartment",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44347",
+							"path": [
+								"api",
+								"Home",
+								"byType",
+								"Apartment"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		}
 	]
 }

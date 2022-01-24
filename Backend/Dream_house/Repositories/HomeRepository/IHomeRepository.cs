@@ -11,7 +11,7 @@ namespace Dream_house.Repositories.HomeRepository
     public interface IHomeRepository: IGenericRepository<Home>
     {
         Home GetByNameIncludingRoom(string name);
-        Home GetHomeByIdWithJoin(Guid id);
+        HomeRoomDTO GetHomeByIdWithJoin(Guid id);
         List<HomeByTypeDTO> GetHomeGroupByType();
         HomeByTypeDTO GetHomeWhereType(string type);
     }

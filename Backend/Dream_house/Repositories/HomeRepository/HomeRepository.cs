@@ -22,12 +22,19 @@ namespace Dream_house.Repositories.HomeRepository
             return _table.Include(x => x.Rooms).FirstOrDefault(x => x.Name.ToLower().Equals(name.ToLower()));
         }
 
-        public Home GetHomeByIdWithJoin(Guid id)
+        public HomeRoomDTO GetHomeByIdWithJoin(Guid id)
         {
             var result = _table.Join(_context.Room, home => home.Id, room => room.Home_id,
-                (home, room) => new { home, room }).Select(obj => obj.home).FirstOrDefault(x => x.Id.Equals(id));
+                (home, room) => new { home, room }).Select(obj => obj).FirstOrDefault(x => x.home.Id.Equals(id));
             //var result = _table.Where(h => h.Id == id).SelectMany(h => h.Rooms); 
-            return result;
+            
+            HomeRoomDTO res = new HomeRoomDTO()
+            {
+                home = result.home,
+                room = result.room
+            };
+
+            return res;
         }
 
         public List<HomeByTypeDTO> GetHomeGroupByType()
