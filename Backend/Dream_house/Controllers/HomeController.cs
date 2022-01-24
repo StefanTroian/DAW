@@ -92,5 +92,35 @@ namespace Dream_house.Controllers
             var result = _homeService.GetDataMappedByName(name);
             return Ok(result);
         }
+
+
+
+        // JOIN
+        [HttpGet("byIdJoin/{id}")]
+        public IActionResult GetByIdJoin(Guid id)
+        {
+            var result = _homeService.GetHomeByIdWithJoinRooms(id);
+            return Ok(result);
+        }
+
+
+
+        // GROUP BY
+        [HttpGet("byType")]
+        public IActionResult GetHomeGroupByType()
+        {
+            var result = _homeService.GetHomeGroupByType();
+            return Ok(result);
+        }
+
+
+
+        // WHERE
+        [HttpGet("byType/{type}")]
+        public IActionResult GetHomeGroupByType(string type)
+        {
+            var result = _homeService.GetHomeWhereType(type);
+            return Ok(result);
+        }
     }
 }

@@ -58,5 +58,34 @@ namespace Dream_house.Services.HomeService
 
             return result;
         }
+
+        public HomeRoomResultDTO GetHomeByIdWithJoinRooms(Guid id)
+        {
+            Home home = _homeRepository.GetHomeByIdWithJoin(id);
+
+            HomeRoomResultDTO result = new HomeRoomResultDTO()
+            {
+                Name = home.Name,
+                Type = home.Type,
+                HomeId = home.Id,
+                Rooms = home.Rooms.ToList<Room>()
+            };
+
+            return result;
+        }
+
+        public List<HomeByTypeDTO> GetHomeGroupByType()
+        {
+            var homes = _homeRepository.GetHomeGroupByType();
+
+            return homes;
+        }
+
+        public HomeByTypeDTO GetHomeWhereType(string type)
+        {
+            var homes = _homeRepository.GetHomeWhereType(type);
+
+            return homes;
+        }
     }
 }
