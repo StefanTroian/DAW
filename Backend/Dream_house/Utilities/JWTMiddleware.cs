@@ -22,7 +22,7 @@ namespace Dream_house.Utilities
 
         public async Task Invoke(HttpContext httpContext, IUserService userService, IJWTUtils jwtUtils)
         {
-            var token = httpContext.Request.Headers["Autorization"].FirstOrDefault()?.Split("").Last();
+            var token = httpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
 
             var userId = jwtUtils.ValidateJWTToken(token);
 
