@@ -1,0 +1,32 @@
+<div>
+    <p>Register</p>
+    <form [formGroup] = "registrationForm">
+
+            <mat-label>Username</mat-label>
+            <input matInput formControlName="Username">
+
+        <br>
+
+            <mat-label>First Name</mat-label>
+            <input matInput formControlName="FirstName">
+
+        <br>
+
+            <mat-label>Last Name</mat-label>
+            <input matInput formControlName="LastName">
+
+        <br>
+
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="Email">
+
+        <br>
+        
+            <mat-label>Password</mat-label>
+            <input matInput formControlName="Password" type="password">
+
+    </form>
+    <div>
+        <button (click) = "checkForm()">Register</button>
+    </div>
+</div>

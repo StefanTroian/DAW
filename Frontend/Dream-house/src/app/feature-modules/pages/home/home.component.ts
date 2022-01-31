@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Home } from 'src/app/core/interfaces/home';
-import { HomeService } from 'src/app/core/services/home-service/home.service';
+import { HomeService } from 'src/app/core/services/home/home.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
